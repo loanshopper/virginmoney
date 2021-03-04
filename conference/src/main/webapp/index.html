@@ -23,26 +23,36 @@
             <h5 class="mb-0">Conference Me!</h5>
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="col"><i class="fa fa-search" style="margin: 5px;"></i><input type="text" style="border-radius: 20px;" placeholder="Speaker's name"></div>
-                <div class="col"><input type="date" style="border-radius: 10px;"></div>
-                <div class="col"></div>
-            </div><span style="margin: 10px;"></span>
-            <div class="row">
-                <div class="col" style="border-width: 1px;border-style: solid;">
-                    <h5>Speaker</h5>
+                
+				<div class="form-row">
+				    <div class="col">
+				        <div class="form-row">
+				            <div class="col-2"><i class="fa fa-search" style="margin: 5px;"></i></div>
+				            <div class="col"><input type="text" class="form-control" id="speakerName" style="border-radius: 20px;" placeholder="Speaker&#39;s name" /></div>
+				        </div>
+				    </div>
+				    <div class="col"><input class="form-control" id="sessionDate"  type="date" style="border-radius: 10px;" /></div>
+				    <div class="col"><button id="reload" class="btn btn-primary" type="button">Reload</button></div>
+				</div>
+                <span style="margin: 10px;"></span>
+	            <hr>
+                
+                <div class="form-row">
+                    <div class="col" style="border-width: 1px;border-style: solid;">
+                        <h5>Speaker</h5>
+                    </div>
+                    <div class="col" style="border-width: 1px;border-style: solid;">
+                        <h5>Session Title</h5>
+                    </div>
+                    <div class="col" style="border-width: 1px;border-style: solid;">
+                        <h5>Date</h5>
+                    </div>
+                    <div class="col" style="border-width: 1px;border-style: solid;">
+                        <h5>Topics</h5>
+                    </div>
                 </div>
-                <div class="col" style="border-width: 1px;border-style: solid;">
-                    <h5>Session Title</h5>
-                </div>
-                <div class="col" style="border-width: 1px;border-style: solid;">
-                    <h5>Date</h5>
-                </div>
-                <div class="col" style="border-width: 1px;border-style: solid;">
-                    <h5>Topics</h5>
-                </div>
-            </div><span style="margin: 5px;"></span>
-            <div id="session-rows" ></div>
+                <span style="margin: 10px;"></span>
+                <div id="session-rows" ></div>
             <hr>
         </div>
     </div>

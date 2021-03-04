@@ -19,6 +19,7 @@
 
     <bean id="collectionAggregator"  class="au.com.virginmoney.conference.CollectionAggregator" />
     <bean id="azurePayloadToSessionTransformer"  class="au.com.virginmoney.conference.AzurePayloadToSesssionTransformer" />
+    <bean id="filterAggregator"  class="au.com.virginmoney.conference.FilterAggregator" />
 
 	<camelContext id="camel-integrations"
 		xmlns="http://camel.apache.org/schema/spring">
@@ -72,6 +73,11 @@
 				<simple>${body.collection.items}</simple>
 				<camel:to uri="direct-vm:transformAzurePayloadToSession" />
 			</split>
+			<split strategyRef="filterAggregator">
+				<!-- Split a list of au.com.virginmoney.conference.Session POJOs -->
+				<simple>${body}</simple>
+				<camel:to uri="mock:result" />
+			</split>
 		</route>
 		<route id="transformAzurePayloadToSession">
 			<!-- Splitting transformer that will convert response from
@@ -80,7 +86,6 @@
 			<from uri="direct-vm:transformAzurePayloadToSession" />
   		    <bean ref="azurePayloadToSessionTransformer" method="transformBody"/>
 		</route>
-
 	</camelContext>
 
 </beans>

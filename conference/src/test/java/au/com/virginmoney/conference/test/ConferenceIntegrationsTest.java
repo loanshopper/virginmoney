@@ -22,7 +22,6 @@ import org.apache.camel.CamelContext;
 import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.ProducerTemplate;
-import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.impl.DefaultExchange;
 import org.junit.After;
 import org.junit.Assert;
@@ -68,6 +67,21 @@ public class ConferenceIntegrationsTest extends Assert {
 		assertNotNull(output);
 		assertEquals(2, ((List<Session>)output).size());
     }
+
+    @Test
+    public void testSessionsTransformerRouteWithSpeakerNameFilter() throws Exception {
+		final Exchange exchange = new DefaultExchange(camelContext);
+		final Message message = exchange.getIn();
+		message.setBody(sessions);
+		message.setHeader("speakerName", "Dan");
+		exchange.setMessage(message);
+		
+		template.send("direct-vm:transformToSessionList", exchange);    
+		final Object output = exchange.getMessage().getBody();
+		assertNotNull(output);
+		assertEquals(1, ((List<Session>)output).size());
+    }
+
 
     @After
     public void tearDown() throws Exception {

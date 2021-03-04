@@ -20,7 +20,6 @@ public class CollectionAggregator implements AggregationStrategy {
 	@Override
 	public Exchange aggregate(Exchange oldExchange, Exchange newExchange) {
 		if (oldExchange == null) {
-			logger.debug("First run");
 			// Only gets here for the first iteration of the split
 			// Here we create the container for aggregation and begin aggregating
 			final List aggregatingList = firstAggregationRun(newExchange.getIn().getBody());
@@ -32,16 +31,13 @@ public class CollectionAggregator implements AggregationStrategy {
 		if (oldExchange.getIn().getBody() instanceof List) {
             final List resourceCollection = oldExchange.getIn().getBody(List.class);
     		resourceCollection.add(payload);
-    		logger.debug("Collated " + payload);
 		} else {
-    		logger.debug("Initialised " + payload);
 			oldExchange.getIn().setBody(firstAggregationRun(payload));
 		}
         return oldExchange;		
 	}
 	
-	private ArrayList firstAggregationRun(Object payload) {
-		logger.debug("Payload " + payload);
+	protected ArrayList firstAggregationRun(Object payload) {
 		final ArrayList aggregatingList = new ArrayList();
 		aggregatingList.add(payload);
 		return aggregatingList;

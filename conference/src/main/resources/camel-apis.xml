@@ -64,12 +64,19 @@
     <rest path="/sessions" apiDocs="true" consumes="application/json" produces="application/json" >
       <camel:get apiDocs="true" routeId="getSessionsForSpeakers" uri="/" outType="au.com.virginmoney.conference.Session" >
    		<param name="speakerName" type="query" description="Speaker to lookup" dataType="string"/>
-   		<param name="date" type="query" description="Date to filter" dataType="string"/>
+   		<param name="sessionDate" type="query" description="Date to filter" dataType="date"/>
         <route>
 			<doTry>
 				<camel:to uri="log:DEBUG?showBody=false&amp;showHeaders=true"  ></camel:to>
+				<camel:setProperty propertyName="speakerName"><camel:simple>${header.speakerName}</camel:simple></camel:setProperty>
+				<camel:setProperty propertyName="sessionDate"><camel:simple>${header.sessionDate}</camel:simple></camel:setProperty>
+				<camel:removeHeaders pattern="speakerName,sessionDate"></camel:removeHeaders>
 				<camel:setHeader headerName="uri_part"><constant>sessions</constant></camel:setHeader>
 				<camel:to uri="direct-vm:apiCandidatesHelper"></camel:to>
+				
+				<camel:log message="3 ${exchangeProperty[speakerName]}"></camel:log>
+				<camel:setHeader headerName="speakerName"><simple>${exchangeProperty[speakerName]}</simple></camel:setHeader>
+				<camel:setHeader headerName="sessionDate"><simple>${exchangeProperty[sessionDate]}</simple></camel:setHeader>
 				<camel:to uri="direct-vm:transformToSessionList"></camel:to>
 				
                 <doCatch>
