@@ -2,18 +2,26 @@
 
 
 ### Introduction
-An example which shows how to use Camel routing to integrate with API servers, to host a REST API proxy and to bundle a standalone web application
+An example which shows how to use Camel routing to integrate with API servers, to host a REST API proxy and to bundle a standalone web application. Key design elements -
+
+- Servlet web application http://localhost:8080/conference using bootstrap and mustache to render a table of sessions
+- REST API http://localhost:8080/conference/rest/sessions built on Camel Rest DSL for the View Model for the web page
+- Inbuilt integration routing using Camel routing as a connector for https://apicandidates.developer.azure-api.net/ APIs
+- JAXB XSD to API model generation 
+- Swagger for Rest APIs http://localhost/conference/rest/api-docs
+- JUnits for testing integration routes
+- Bundled Postman test suite for functional testing
 
 ### Build
 You will need to package this example first:
 
 	cd conference
-        mvn package
+	mvn package
 
 ### Prerequisites
 
-Install JDK 9+
-Install Maven
+	Install JDK 9+
+	Install Maven
 
 ### Unit tests
 
@@ -31,8 +39,8 @@ To run the example
 
 	mvn jetty:run
 
-And then hit this url from a webbrowser which has further
-instructions
+And then hit this url from a web browser
 
 <http://localhost:8080/conference>
+
 
