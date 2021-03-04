@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.virginmoney.com.au/Conference" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.virginmoney.com.au/Conference">
+
+    <complexType name="Session">
+    	<sequence>
+    		<element name="speaker" type="tns:Speaker" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="title" type="string" maxOccurs="1"
+    			minOccurs="0">
+    		</element>
+    		<element name="timeslot" type="string" maxOccurs="1" minOccurs="0"></element>
+    		<element name="topic" type="string" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AzureAPIResponse">
+    	<sequence>
+    		<element name="collection" type="tns:AzureCollection"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AzureCollection">
+    	<sequence>
+    		<element name="version" type="double"></element>
+    		<element name="links" type="tns:AzureLink"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    		<element name="items" type="tns:AzurePayload"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    		<element name="queries" type="string" maxOccurs="unbounded"
+    			minOccurs="0">
+    		</element>
+    		<element name="template" type="tns:AzureTemplate" maxOccurs="1" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AzureLink">
+    	<sequence>
+    		<element name="rel" type="string"></element>
+    		<element name="href" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AzurePayload">
+    	<sequence>
+    		<element name="href" type="string"></element>
+    		<element name="data" type="tns:AzureRecord"
+    			maxOccurs="unbounded" minOccurs="0">
+    		</element>
+    		<element name="links" type="tns:AzureLink" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AzureRecord">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="value" type="string"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="AzureTemplate">
+    	<sequence>
+    		<element name="data" type="tns:AzureRecord" maxOccurs="unbounded" minOccurs="0"></element>
+    	</sequence>
+    </complexType>
+
+    <complexType name="Speaker">
+    	<sequence>
+    		<element name="name" type="string"></element>
+    		<element name="profile" type="string"></element>
+    	</sequence>
+    </complexType>
+
+</schema>

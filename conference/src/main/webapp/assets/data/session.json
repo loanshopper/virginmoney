@@ -1,0 +1,19 @@
+{"sessions":[{
+        "speaker": {
+            "name": "Dan North"
+        },
+        "title": "Keynote with Dan North - Jackstones: the Journey to Mastery",
+        "timeslot": "04 December 2013 09:00 - 10:00"
+    },
+    {
+        "speaker": {
+            "name": "Jon Skeet"
+        },
+        "title": "\r\n\t\t\tAsync in C# 5\r\n\t\t",
+        "timeslot": "04 December 2013 10:20 - 11:20"
+    },
+    {
+        "speaker": {},
+        "title": "\r\n\t\t\tIntroducing Visual Studio 2013\r\n\t\t",
+        "timeslot": "04 December 2013 10:20 - 11:20"
+    }]}

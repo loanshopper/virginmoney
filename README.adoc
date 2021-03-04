@@ -1,0 +1,38 @@
+# Conference Me web application
+
+
+### Introduction
+An example which shows how to use Camel routing to integrate with API servers, to host a REST API proxy and to bundle a standalone web application
+
+### Build
+You will need to package this example first:
+
+	cd conference
+        mvn package
+
+### Prerequisites
+
+Install JDK 9+
+Install Maven
+
+### Unit tests
+
+Integration routes can be tested via maven
+
+	mvn test
+
+Once deployed, REST APIs and Swagger can be tested via Postman tests in the project source
+    
+    VirginMoney.postman_collection.json
+
+### Run
+
+To run the example
+
+	mvn jetty:run
+
+And then hit this url from a webbrowser which has further
+instructions
+
+<http://localhost:8080/conference>
+

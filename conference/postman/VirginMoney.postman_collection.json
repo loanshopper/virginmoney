@@ -1,0 +1,78 @@
+{
+	"info": {
+		"_postman_id": "c7491fc4-a445-4d79-8f75-5c8367110492",
+		"name": "VirginMoney",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Candidates API Proxy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/conference/camel/apiCandidates?uri_part=/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conference",
+						"camel",
+						"apiCandidates"
+					],
+					"query": [
+						{
+							"key": "uri_part",
+							"value": "/sessions"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Sessions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/conference/rest/sessions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conference",
+						"rest",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Swagger",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/conference/rest/api-docs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"conference",
+						"rest",
+						"api-docs"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
