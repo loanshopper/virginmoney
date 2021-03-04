@@ -12,16 +12,15 @@ An example which shows how to use Camel routing to integrate with API servers, t
 - JUnits for testing integration routes
 - Bundled Postman test suite for functional testing
 
-### Build
-You will need to package this example first:
+Packaged conference.war is included in github repository which can be dropped into any servlet container on any JDK8+. Alternatively build instructions are as below.
+
+### Build steps
+
+	Install JDK 8 (Required for Camel 2.25)
+	Install Maven
 
 	cd conference
 	mvn package
-
-### Prerequisites
-
-	Install JDK 9+
-	Install Maven
 
 ### Unit tests
 
@@ -34,7 +33,6 @@ Once deployed, REST APIs and Swagger can be tested via Postman tests in the proj
     VirginMoney.postman_collection.json
 
 ### Run
-
 To run the example
 
 	mvn jetty:run
